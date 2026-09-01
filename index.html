@@ -4,10 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Friction Lab: The Calibration Challenge</title>
+<link rel="stylesheet" href="https://minerclass.github.io/tokens.css">
 <style>
   :root{
+    /* Ground and the four dimension colours stay local: they are this
+       simulation's signal, not decoration. Text joins the shared ink. */
     --bg:#0b1016; --panel:rgba(17,24,33,.85); --line:#27313d;
-    --text:#e6edf3; --dim:#8b98a5;
+    --text:var(--mjm-ink,#e6edf3); --dim:var(--mjm-muted,#8b98a5);
+    --mjm-accent:var(--mjm-blue,#38bdf8);
     --accent:#38bdf8;
     --good:#34d399; --bad:#f87171; --warn:#fbbf24;
     --noetic:#38bdf8; --rhet:#a78bfa; --exis:#34d399; --infra:#f59e0b;
@@ -50,7 +54,9 @@
   .quotebox{border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;background:var(--panel);
     padding:20px 22px;margin:26px 0;font-size:17px;line-height:1.6;font-style:italic;max-width:64ch;backdrop-filter:blur(6px)}
   .quotebox .ql{font-style:normal;font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:10px}
-  .credit{margin-top:30px;font-size:12.5px;color:#5d6975;line-height:1.65;max-width:70ch}
+  /* Was a hardcoded #5d6975, measuring 3.40 against the ground. Uses the dim
+     token instead, which now resolves to the shared muted ink at 8.48. */
+  .credit{margin-top:30px;font-size:12.5px;color:var(--dim);line-height:1.65;max-width:70ch}
   .navrow{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
 
   /* level progress */
